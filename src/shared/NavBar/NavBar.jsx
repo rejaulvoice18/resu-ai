@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 const NavBar = () => {
     const navOptions = <>
@@ -30,13 +31,13 @@ const NavBar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm text-white dropdown-content bg-pink-700 rounded-box z-[10] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm text-white dropdown-content bg-black rounded-box z-[10] mt-3 w-52 p-2 shadow">
 
                             {navOptions}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">
-                        <img className='w-10' src="logo" alt="" />
+                        <img className='w-8 mr-2' src={logo} alt="" />
                         Resu-Ai</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
