@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
+<<<<<<< HEAD
+=======
+
+body{
+  background-color: #14110f;
+}
+a.active{
+  background-color: #34312d !important;
+}
+>>>>>>> bde46908b1888aeeea0950078584d5f24cb457a6
