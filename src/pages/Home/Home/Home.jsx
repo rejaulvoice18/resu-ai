@@ -1,10 +1,12 @@
 import React from 'react';
+import AITool from '../../../components/AITool';
+import ResumeService from '../../../components/ResumeService';
 
 const Home = () => {
     return (
         <div>
-            <h1>THis is Home page</h1>
-            <h2>This is new</h2>
+            <AITool></AITool>
+            <ResumeService></ResumeService>
         </div>
     );
 };
