@@ -10,7 +10,7 @@ const Hero = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div>
-                        <img src={Robot} alt="" />
+                        <img src={Robot} alt="" className='md:h-90'/>
                     </div>
                     <div>
                         <div className='text-center'>
