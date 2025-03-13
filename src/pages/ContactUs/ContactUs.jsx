@@ -21,14 +21,14 @@ const ContactUs = () => {
                         <label className='block mb-2 text-lg'>Full Name</label>
                         <input type="text"
                             className="w-full border-b py-2"
-                            placeholder="First Name" />
+                            placeholder="First Name" required />
                     </div>
                     {/* name */}
                     <div className="">
                         <label className='block mb-2 text-lg'>Email</label>
                         <input type="text"
                             className=" border-b py-2 w-full"
-                            placeholder="example@gmail.com" />
+                            placeholder="example@gmail.com" required />
                     </div>
                 </div>
 
@@ -39,14 +39,14 @@ const ContactUs = () => {
                         <label className='block mb-2 text-lg'>Address 1</label>
                         <input type="text"
                             className="w-full border-b py-2 "
-                            placeholder="123 main street" />
+                            placeholder="123 main street" required />
                     </div>
                     {/* address 2 */}
                     <div className="">
                         <label className='block mb-2 text-lg'>Address 2</label>
                         <input type="text"
                             className="w-full border-b py-2 "
-                            placeholder="123 main street" />
+                            placeholder="123 main street" required />
                     </div>
                 </div>
 
@@ -56,9 +56,14 @@ const ContactUs = () => {
                     <fieldset className="fieldset">
                         <label className='block mb-2 text-lg'>Massage</label>
                         <textarea
-                            className="h-24 w-full border-b text-[16px]"
-                            placeholder="Please describe your service here"></textarea>
+                            className="h-24 w-full border-b text-[16px] py-2"
+                            placeholder="Please describe your service here" required></textarea>
                     </fieldset>
+                </div>
+                {/* submit btn */}
+                <div>
+                    <button type='submit'
+                     className='bg-[#EE6983] px-[40px] py-3.5 font-bold text-white mt-6 cursor-pointer rounded-sm'>Build Now</button>
                 </div>
             </form>
         </div>
