@@ -1,10 +1,12 @@
 import React from 'react';
+import FeaturesSection from '../../../components/FeaturesSection';
+import ResumeInsightsSection from '../../../components/ResumeInsightsSection';
 
 const Home = () => {
     return (
         <div>
-            <h1>THis is Home page</h1>
-            <h2>This is new</h2>
+            <FeaturesSection></FeaturesSection> 
+            <ResumeInsightsSection></ResumeInsightsSection>
         </div>
     );
 };
