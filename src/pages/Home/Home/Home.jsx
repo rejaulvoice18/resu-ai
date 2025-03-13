@@ -1,10 +1,10 @@
 import React from 'react';
+import ContactUs from '../../ContactUs/ContactUs';
 
 const Home = () => {
     return (
         <div>
-            <h1>THis is Home page</h1>
-            <h2>This is new</h2>
+            <ContactUs/>
         </div>
     );
 };

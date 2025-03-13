@@ -8,6 +8,7 @@ const NavBar = () => {
     <li><NavLink to="/contact-us">Contact Us</NavLink></li>
     <li><NavLink to="/aboutUs">About Us</NavLink></li>
 </>
+
     return (
         <div className='bg-black'>
         <>
@@ -47,7 +48,6 @@ const NavBar = () => {
                 <div className="navbar-end">
                 </div>
             </div>
-
         </>
     </div>
     );
