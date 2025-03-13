@@ -26,13 +26,13 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <div className="bg-black py-14">
+    <div className="bg-black ">
       <div className=" text-white py-12 px-5 flex flex-col md:flex-row items-center justify-evenly space-y-6 lg:space-y-0 lg:space-x-12 w-10/12 mx-auto">
         <div className="flex flex-col space-y-6">
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-gray-800 p-5 rounded-xl shadow-lg flex items-center space-x-4 w-96 cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out "
+              className="bg-gray-800 p-5 rounded-xl shadow-lg flex items-center space-x-4 w-96 cursor-pointer hover:border-t-2 hover:scale-105 transition-all duration-500 ease-in-out "
             >
               <div>{feature.icon}</div>
               <div>
