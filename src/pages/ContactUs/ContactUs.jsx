@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
     return (
-        <div className='border mt-10 bg-white px-5 lg:px-0 py-[100px]'>
+        <div id='contact' className='mt-10 bg-white px-5 lg:px-0 py-[100px]'>
             {/* title and description section*/}
             <div className='text-center space-y-4 mb-6'>
                 <h2 className='text-4xl font-bold'>Let's Get Started</h2>
