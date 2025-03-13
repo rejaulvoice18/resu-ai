@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 const NavBar = () => {
     const navOptions = <>
@@ -36,7 +37,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">
-                        <img className='w-10' src="logo" alt="" />
+                        <img className='w-8 mr-2' src={logo} alt="" />
                         Resu-Ai</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
