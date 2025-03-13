@@ -6,9 +6,9 @@ const Hero = () => {
         <div className='bg-black pt-20'>
             <div className='max-w-screen-xl mx-auto pb-5'>
                 <div className='pb-20'>
-                    <h1 className='text-2xl md:text-4xl lg:text-5xl md:w-2/6 mx-auto text-center'>Craft your perfect resume, effortlessly</h1>
+                    <h1 className='text-2xl md:text-4xl lg:text-6xl md:w-3/8'>Craft your perfect resume, effortlessly</h1>
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div>
                         <img src={Robot} alt="" />
                     </div>
