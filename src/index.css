@@ -7,3 +7,22 @@ body{
 a.active{
   background-color: #34312d !important;
 }
+
+span.swiper-pagination-bullet{
+   background-color: white;
+}
+
+span.swiper-pagination-bullet-active{
+  background-color: #636AE8;
+}
+
+.swiper-pagination {
+  display: flex ;
+  justify-content: start;
+}
+
+.react-stars svg {
+  fill: url(#grad);
+  color: yellow;
+}
+

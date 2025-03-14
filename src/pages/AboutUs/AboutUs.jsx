@@ -1,9 +1,10 @@
 import React from 'react';
+import ClientsSay from './ClientsSay';
 
 const AboutUs = () => {
     return (
-        <div>
-            <h2>This is about us page</h2>
+        <div className='max-w-screen-xl mx-auto'>
+            <ClientsSay/>
         </div>
     );
 };

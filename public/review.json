@@ -1,0 +1,38 @@
+[
+    {
+      "name": "John Doe",
+      "profession": "Software Engineer",
+      "image": "https://example.com/john.jpg",
+      "feedback": "Amazing service! The team was very professional and delivered beyond expectations.",
+      "rating": 5
+    },
+    {
+      "name": "Emma Smith",
+      "profession": "Graphic Designer",
+      "image": "https://example.com/emma.jpg",
+      "feedback": "Great experience. The design work was top-notch and met my needs perfectly.",
+      "rating": 4.5
+    },
+    {
+      "name": "Michael Johnson",
+      "profession": "Marketing Specialist",
+      "image": "https://example.com/michael.jpg",
+      "feedback": "Very satisfied with the marketing strategies provided. Helped boost our sales significantly.",
+      "rating": 5
+    },
+    {
+      "name": "Sophia Lee",
+      "profession": "Entrepreneur",
+      "image": "https://example.com/sophia.jpg",
+      "feedback": "A fantastic experience! The customer service was excellent and very responsive.",
+      "rating": 4.8
+    },
+    {
+      "name": "David Brown",
+      "profession": "Photographer",
+      "image": "https://example.com/david.jpg",
+      "feedback": "Good service overall. Could improve response time, but the final output was great!",
+      "rating": 4
+    }
+  ]
+  
