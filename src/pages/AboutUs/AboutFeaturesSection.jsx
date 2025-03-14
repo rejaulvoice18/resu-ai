@@ -2,10 +2,10 @@ import React from 'react';
 import { FaArrowRight, FaFileAlt, FaPenFancy, FaCheckCircle } from "react-icons/fa";
 const AboutFeaturesSection = () => {
     return (
-        <div className="bg-black text-white py-16 px-6">
-            <div className="max-w-5xl mx-auto text-center">
-                <h2 className="text-2xl font-bold mb-8">Why Use Our Resume Builder?</h2>
-                <div className="grid md:grid-cols-3 gap-8">
+        <div className="bg-black text-white py-16  px-10">
+            <div className="max-w-5xl mx-auto my-18 text-center">
+                <h2 className="text-2xl font-bold mb-12">Why Use Our Resume Builder?</h2>
+                <div className="grid md:grid-cols-3 gap-8 ">
                     <div className="flex flex-col items-center">
                         <FaFileAlt className="text-4xl mb-4" />
                         <h3 className="text-lg font-semibold">Personalized Templates</h3>
