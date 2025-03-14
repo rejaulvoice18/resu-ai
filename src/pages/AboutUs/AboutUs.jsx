@@ -1,9 +1,12 @@
 import React from 'react';
+import HeroSection from './HeroSection';
+import AboutFeaturesSection from './AboutFeaturesSection';
 
 const AboutUs = () => {
     return (
         <div>
-            <h2>This is about us page</h2>
+            <HeroSection></HeroSection> 
+            <AboutFeaturesSection></AboutFeaturesSection>
         </div>
     );
 };

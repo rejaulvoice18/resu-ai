@@ -1,15 +1,16 @@
-import React from 'react';
-import FeaturesSection from '../../../components/FeaturesSection';
-import ResumeInsightsSection from '../../../components/ResumeInsightsSection';
-import Hero from '../../../components/Hero';
-
+import React from "react";
+import Hero from "../../../components/Hero";
+import FeaturesSection from "../../../components/FeaturesSection";
+import ResumeInsightsSection from "../../../components/ResumeInsightsSection";
+import TestimonialSection from "../../../components/TestimonialSection";
 
 const Home = () => {
     return (
         <div>
-            <Hero></Hero>
-            <FeaturesSection></FeaturesSection> 
-            <ResumeInsightsSection></ResumeInsightsSection>
+            <Hero />
+            <FeaturesSection />
+            <ResumeInsightsSection />
+            <TestimonialSection />
         </div>
     );
 };
