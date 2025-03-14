@@ -12,8 +12,6 @@ const Home = () => {
             <ResumeService></ResumeService>  
         </div>
     );
-
-
 }
 
 export default Home;
