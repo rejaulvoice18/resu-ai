@@ -1,12 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body{
+body {
   background-color: #14110f;
 }
-a.active{
+a.active {
   background-color: #34312d !important;
 }
+<<<<<<< HEAD
 
 span.swiper-pagination-bullet{
    background-color: white;
@@ -26,3 +27,5 @@ span.swiper-pagination-bullet-active{
   color: yellow;
 }
 
+=======
+>>>>>>> bc5477b942f0e4e7ed391f9f67bae680dbc1ac70
