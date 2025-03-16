@@ -3,24 +3,29 @@ import Home from "../pages/Home/Home/Home";
 import Main from "../layout/Main";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import WireFrame from "../components/WireFrame";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path:'contact-us',
-                element: <ContactUs></ContactUs>
-            },
-            {
-                path:'aboutUs',
-                element: <AboutUs></AboutUs>
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "aboutUs",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "wire-frame",
+        element: <WireFrame></WireFrame>,
+      },
+    ],
+  },
+]);
