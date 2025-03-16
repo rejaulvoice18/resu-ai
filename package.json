@@ -18,7 +18,11 @@
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-icons": "^5.5.0",
+<<<<<<< HEAD
     "react-leaflet": "^5.0.0",
+=======
+    "react-image-lightbox": "^5.1.4",
+>>>>>>> 9b7551b56df0f9434299859deb1e4a21ceaab356
     "react-router-dom": "^7.3.0",
     "sort-by": "^1.2.0",
     "tailwindcss": "^4.0.13"
