@@ -61,7 +61,7 @@ const Summery = ({ enableNext }) => {
         <div>
             <div className='p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10'>
                 <h2 className='font-bold text-lg text-white'>Summery</h2>
-                <h2 className='text-white'>Add Summery for your job title</h2>
+                
 
                 <form className='mt-7' onSubmit={onSave}>
                     <div className='flex justify-between items-end'>
