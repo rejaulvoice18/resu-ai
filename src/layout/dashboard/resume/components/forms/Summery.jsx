@@ -15,7 +15,7 @@ const Summery = ({ enableNext }) => {
     const [summery, setSummery] = useState()
     const [loading, setLoading] = useState(false);
     const params = useParams();
-    const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState()
+    const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState([])
 
 
 
@@ -61,7 +61,7 @@ const Summery = ({ enableNext }) => {
         <div>
             <div className='p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10'>
                 <h2 className='font-bold text-lg text-white'>Summery</h2>
-                
+                <p className='text-white'>Add Summery for your job title</p>
 
                 <form className='mt-7' onSubmit={onSave}>
                     <div className='flex justify-between items-end'>
@@ -86,7 +86,7 @@ const Summery = ({ enableNext }) => {
             {
                 aiGeneratedSummeryList && (
                     <div>
-                    <h2 className='font-bold text-lg text-white'>Suggestions</h2>
+                    <h2 className='font-bold text-lg text-white mt-2'>Suggestions</h2>
                     {aiGeneratedSummeryList?.map((item,idx)=>(
                         <div key={idx}
                         onClick={()=>setSummery(item?.summary)}
