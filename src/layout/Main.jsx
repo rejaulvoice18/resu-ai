@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../shared/NavBar/NavBar';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
+import { Toaster } from 'sonner';
 
 const Main = () => {
     const {user, isLoaded, isSignedIn} = useUser()
@@ -14,6 +15,7 @@ const Main = () => {
             <div className='min-h-[calc(100vh-290px'>
                 <Outlet></Outlet>
             </div>
+            <Toaster />
         </div>
     );
 };
