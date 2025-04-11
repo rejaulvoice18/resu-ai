@@ -8,15 +8,17 @@ import { Brain, LoaderCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { AIChatSession } from './../../../../../../apiendpoint/AIModal';
 
-const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
+const prompt = "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
 
 const Summery = ({ enableNext }) => {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
     const [summery, setSummery] = useState()
     const [loading, setLoading] = useState(false);
     const params = useParams();
-    const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState()
+    const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState([])
 
+    console.log('AI Summary List:', aiGeneratedSummeryList)
+    console.log('Type:', typeof aiGeneratedSummeryList)
 
 
     useEffect(() => {
@@ -61,7 +63,7 @@ const Summery = ({ enableNext }) => {
         <div>
             <div className='p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10'>
                 <h2 className='font-bold text-lg text-white'>Summery</h2>
-                
+                <p className='text-white'>Add Summery for your job title</p>
 
                 <form className='mt-7' onSubmit={onSave}>
                     <div className='flex justify-between items-end'>
@@ -83,22 +85,21 @@ const Summery = ({ enableNext }) => {
                 </form>
             </div>
 
-            {
-                aiGeneratedSummeryList && (
-                    <div>
-                    <h2 className='font-bold text-lg text-white'>Suggestions</h2>
-                    {aiGeneratedSummeryList?.map((item,idx)=>(
-                        <div key={idx}
-                        onClick={()=>setSummery(item?.summary)}
-                        className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'
+            {Array.isArray(aiGeneratedSummeryList) && aiGeneratedSummeryList.length > 0 && (
+                <div>
+                    <h2 className='font-bold text-lg text-white mt-2'>Suggestions</h2>
+                    {aiGeneratedSummeryList.map((item, idx) => (
+                        <div
+                            key={idx}
+                            onClick={() => setSummery(item?.summary)}
+                            className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'
                         >
                             <h2 className='font-bold my-1 text-white'>Level: {item?.experience_level}</h2>
                             <p className='text-white'>{item?.summary}</p>
                         </div>
                     ))}
                 </div>
-                )
-            }
+            )}
 
         </div>
     );
