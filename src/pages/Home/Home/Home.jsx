@@ -17,13 +17,7 @@ const Home = () => {
             <Feature2 />
         </div>
     );
-  // return (
-  //   <div>
-  //     <Hero></Hero>
-  //     <FeaturesSection></FeaturesSection>
-  //     <TestimonialSection></TestimonialSection>
-  //   </div>
-  // );
+
 };
 
 export default Home;
