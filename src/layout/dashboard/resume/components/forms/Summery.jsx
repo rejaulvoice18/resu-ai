@@ -15,7 +15,7 @@ const Summery = ({ enableNext }) => {
     const [summery, setSummery] = useState()
     const [loading, setLoading] = useState(false);
     const params = useParams();
-    const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState([])
+    const [aiGeneratedSummeryList, setAiGenerateSummeryList] = useState([]);
 
     console.log('AI Summary List:', aiGeneratedSummeryList)
     console.log('Type:', typeof aiGeneratedSummeryList)
@@ -30,34 +30,35 @@ const Summery = ({ enableNext }) => {
 
     const GenerateSummeryFromAI = async () => {
         setLoading(true)
-        const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle)
-        console.log(PROMPT)
-        const result = await AIChatSession.sendMessage(PROMPT)
-        console.log(JSON.parse(result.response.text()));
-        setAiGeneratedSummeryList(JSON.parse(result.response.text()))
-        setLoading(false)
+        const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
+        console.log(PROMPT);
+        const result = await AIChatSession.sendMessage(PROMPT);
+        console.log(JSON.parse(result.response.text()))
+
+        // setAiGenerateSummeryList([JSON.parse(result.response.text())])
+        const parsed = JSON.parse(result.response.text());
+        setAiGenerateSummeryList(parsed.summaries);
+
+        setLoading(false);
     }
 
     const onSave = (e) => {
-        e.preventDefault()
-        setLoading(true)
+        e.preventDefault();
 
+        setLoading(true)
         const data = {
             data: {
                 summery: summery
             }
         }
-
-        GlobalApi.UpdateResumeDetail(params?.resumeId, data)
-            .then(resp => {
-                console.log(resp);
-                enableNext(true)
-                setLoading(false);
-                toast("Summery updated")
-            }, (error) => {
-                setLoading(false);
-            })
-
+        GlobalApi.UpdateResumeDetail(params?.resumeId, data).then(resp => {
+            console.log(resp);
+            enableNext(true);
+            setLoading(false);
+            toast("Details updated")
+        }, (error) => {
+            setLoading(false);
+        })
     }
     return (
         <div>
@@ -74,6 +75,7 @@ const Summery = ({ enableNext }) => {
                             <Brain className='h-4 w-4' /> Generate from AI</Button>
                     </div>
                     <Textarea className="mt-5 text-white" required
+                        value={summery}
                         onChange={(e) => setSummery(e.target.value)}
                     />
                     <div className='mt-2 flex justify-end'>
@@ -86,20 +88,19 @@ const Summery = ({ enableNext }) => {
             </div>
 
             {Array.isArray(aiGeneratedSummeryList) && aiGeneratedSummeryList.length > 0 && (
-                <div>
-                    <h2 className='font-bold text-lg text-white mt-2'>Suggestions</h2>
-                    {aiGeneratedSummeryList.map((item, idx) => (
-                        <div
-                            key={idx}
+                <div className='my-5'>
+                    <h2 className='font-bold text-lg'>Suggestions</h2>
+                    {aiGeneratedSummeryList.map((item, index) => (
+                        <div key={index}
                             onClick={() => setSummery(item?.summary)}
-                            className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'
-                        >
-                            <h2 className='font-bold my-1 text-white'>Level: {item?.experience_level}</h2>
-                            <p className='text-white'>{item?.summary}</p>
+                            className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'>
+                            <h2 className='font-bold my-1 text-primary'>Level: {item?.experience_level}</h2>
+                            <p>{item?.summary}</p>
                         </div>
                     ))}
                 </div>
             )}
+
 
         </div>
     );
