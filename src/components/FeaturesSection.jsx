@@ -2,8 +2,8 @@ import React from 'react';
 import { FaArrowTrendUp } from 'react-icons/fa6';
 const FeaturesSection = () => {
   return (
-    <div className=" text-white p-6 max-w-6xl mx-auto ">
-      <div className="max-w-4xl mx-auto">
+    <div className=" text-white p-6 w-10/12 mx-auto">
+      <div className="">
         <div className="grid gap-4">
           {["AI Builder", "Easy Editing", "Smart Templates", "Data Driven", "ATS Ready"].map((item, index) => (
             <div

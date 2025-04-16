@@ -6,10 +6,13 @@ import FeaturesSection from "../../../components/FeaturesSection";
 import ResumeInsightsSection from "../../../components/ResumeInsightsSection";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Feature2 from "../../../components/Feature2";
+import NavBar from "@/shared/NavBar/NavBar";
 
 const Home = () => {
     return (
         <div>
+            
+            <NavBar></NavBar>
             <Hero></Hero>
             <FeaturesSection />
             <ResumeInsightsSection />
@@ -19,6 +22,7 @@ const Home = () => {
             <ResumeService></ResumeService>  
         </div>
     );
+
 };
 
 export default Home;

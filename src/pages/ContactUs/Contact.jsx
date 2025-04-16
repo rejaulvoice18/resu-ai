@@ -44,12 +44,12 @@ const Contact = () => {
                         zoom={13}
                         style={{ width:"100%",height:'500px',borderTopRightRadius:'10px',borderBottomRightRadius:'10px'}}
                     >
-                        {/* Tile Layer - OpenStreetMap (Free) */}
+                      
                         <TileLayer
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
 
-                        {/* Marker with Popup */}
+                   
                         <Marker position={position}>
                             <Popup>
                                  You are here! <br /> Dhaka, Bangladesh.
