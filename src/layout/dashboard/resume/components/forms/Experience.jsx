@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import RichTextEditor from '../RichTextEditor';
+import { ResumeInfoContext } from '@/context/ResumeInfoContext';
 
 const formField = {
     title: '',
@@ -16,6 +17,10 @@ const Experience = ({ enableNext }) => {
     const [experienceList, setExperienceList] = useState([
         formField
     ])
+
+    const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext);
+
+
 
     const handleChange = (index, event) => {
         const newEntries=experienceList.slice();
@@ -40,7 +45,10 @@ const Experience = ({ enableNext }) => {
     }
 
     useEffect(()=>{
-        console.log(experienceList);
+        setResumeInfo({
+            ...resumeInfo,
+            experience:experienceList
+        })
     },[experienceList])
 
     return (
@@ -54,27 +62,27 @@ const Experience = ({ enableNext }) => {
                             <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
                                 <div>
                                     <label className='text-xs text-white'>Position Title</label>
-                                    <Input className="text-white" name="title" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" name="title" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div>
                                     <label className='text-xs text-white'>Company Name</label>
-                                    <Input className="text-white" name="companyName" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" name="companyName" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div>
                                     <label className='text-xs text-white'>City</label>
-                                    <Input className="text-white" name="city" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" name="city" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div>
                                     <label className='text-xs text-white'>State</label>
-                                    <Input className="text-white" name="state" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" name="state" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div>
                                     <label className='text-xs text-white'>Start Date</label>
-                                    <Input className="text-white" type="date" name="startDate" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" type="date" name="startDate" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div>
                                     <label className='text-xs text-white'>End Date</label>
-                                    <Input className="text-white" type="date" name="endDate" onChange={(event) => handleChange(idx, event)} />
+                                    <Input className="text-white" type="date" name="endDate" onChange={(event) => handleChange(index, event)} />
                                 </div>
                                 <div className='col-span-2'>
                                     {/* Work Summery */}
