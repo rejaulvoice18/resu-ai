@@ -11,7 +11,7 @@ import { AIChatSession } from "./../../../../../../apiendpoint/AIModal";
 const prompt =
   "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format";
 
-const Summery = ({ enableNext }) => {
+const Summery = ({ enableNext, resumeId }) => {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [summery, setSummery] = useState();
   const [loading, setLoading] = useState(false);
@@ -29,15 +29,6 @@ const Summery = ({ enableNext }) => {
       });
   }, [summery]);
 
-  //   const GenerateSummeryFromAI = async () => {
-  //     setLoading(true);
-  //     const PROMPT = prompt.replace("{jobTitle}", resumeInfo?.jobTitle);
-  //     console.log(PROMPT);
-  //     const result = await AIChatSession.sendMessage(PROMPT);
-  //     console.log(JSON.parse(result.response.text()));
-  //     setAiGeneratedSummeryList(JSON.parse([result.response.text()]));
-  //     setLoading(false);
-  //   };
   const GenerateSummeryFromAI = async () => {
     setLoading(true);
     const PROMPT = prompt.replace("{jobTitle}", resumeInfo?.jobTitle);
@@ -49,7 +40,7 @@ const Summery = ({ enableNext }) => {
     try {
       const parsed = JSON.parse(responseText); // directly parse JSON string
       console.log(parsed); // Make sure it’s in expected structure
-      setAiGeneratedSummeryList(parsed.summaries || []); // assuming API returns { summaries: [...] }
+      setAiGeneratedSummeryList(parsed.summary_list || parsed.summaries || []); // assuming API returns { summaries: [...] }
     } catch (err) {
       console.error("Error parsing AI summary:", err);
       toast.error("Failed to parse AI response");
@@ -68,7 +59,7 @@ const Summery = ({ enableNext }) => {
       },
     };
 
-    GlobalApi.UpdateResumeDetail(params?.resumeId, data).then(
+    GlobalApi.UpdateResumeDetail(resumeId, data).then(
       (resp) => {
         console.log(resp);
         enableNext(true);

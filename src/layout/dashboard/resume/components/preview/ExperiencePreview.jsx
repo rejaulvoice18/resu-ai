@@ -24,7 +24,7 @@ const ExperiencePreview = ({ resumeInfo }) => {
           <h2 className="text-white text-xs flex justify-between">
             {experience?.companyName},{experience?.city}, {experience?.state}
             <span>
-              {experience?.startDate}{" "}
+              {experience?.startDate} To
               {experience?.currentlyWorking ? "Present" : experience?.endDate}
             </span>
           </h2>

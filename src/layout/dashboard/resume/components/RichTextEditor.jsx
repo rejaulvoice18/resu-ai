@@ -25,22 +25,35 @@ const RichTextEditor = ({ onRichTextEditorChange, idx }) => {
   const [value, setValue] = useState("");
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [loading, setLoading] = useState(false);
+
   const GenerateSummary = async () => {
     setLoading(true);
+
     if (!resumeInfo.experience[idx].title) {
       toast("Please Add Position Title");
+      setLoading(false);
       return;
     }
+
     const prompt = PROMPT.replace(
       "{positionTitle}",
       resumeInfo.experience[idx].title
     );
-    console.log(prompt);
-    const result = await AIChatSession.sendMessage(prompt);
-    console.log(result.response.text());
-    const resp = JSON.parse(result.response.text());
-    setValue(resp[0]);
-    setLoading(false);
+
+    try {
+      const result = await AIChatSession.sendMessage(prompt);
+      const text = await result.response.text();
+      const resp = text.replace("[", "").replace("]", "");
+      console.log(resp);
+
+      setValue(resp); // Set value for text editor
+      onRichTextEditorChange(value, "workSummery", idx); // Update parent state too
+    } catch (err) {
+      toast("Failed to generate summary");
+      console.error("AI Summary Error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
