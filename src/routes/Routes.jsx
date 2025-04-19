@@ -6,6 +6,7 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import SignInPage from "../auth/sign-in/SignInPage";
 import Dashboard from "@/layout/dashboard/Dashboard";
 import EditResume from "@/layout/dashboard/resume/[resumeId]/edit/EditResume";
+import ViewResume from "@/my-resume/[resumeId]/View";
 
 export const router = createBrowserRouter([
     {
@@ -36,5 +37,9 @@ export const router = createBrowserRouter([
     {
         path: "/auth/sign-in",
         element: <SignInPage></SignInPage>
+    },
+    {
+        path:'/my-resume/:resumeId/view',
+        element:<ViewResume></ViewResume>
     }
 ])
