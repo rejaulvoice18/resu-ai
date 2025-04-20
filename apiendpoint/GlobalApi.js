@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const API_KEY=import.meta.env.VITE_STRAPI_API_KEY;
 const axiosClient=axios.create({
