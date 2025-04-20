@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import React, { useContext, useEffect, useState } from "react";
 import RichTextEditor from "../RichTextEditor";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
+import GlobalApi from "../../../../../../apiendpoint/GlobalApi";
+import { toast } from "sonner";
 
 const formField = {
   title: "",
@@ -14,11 +16,12 @@ const formField = {
   endDate: "",
   workSummery: "",
 };
-const Experience = ({ enableNext }) => {
+const Experience = ({ enableNext, resumeId }) => {
   const [experienceList, setExperienceList] = useState([formField]);
 
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleChange = (idx, event) => {
     const newEntries = experienceList.slice();
     const { name, value } = event.target;
@@ -41,6 +44,30 @@ const Experience = ({ enableNext }) => {
   //   useEffect(() => {
   //     console.log(experienceList);
   //   }, [experienceList]);
+
+  const onSave = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const data = {
+      data: {
+        experience: experienceList,
+      },
+    };
+
+    GlobalApi.UpdateResumeDetail(resumeId, data).then(
+      (resp) => {
+        console.log(resp);
+        enableNext(true);
+        setLoading(false);
+        toast("Summery updated");
+      },
+      (error) => {
+        setLoading(false);
+      }
+    );
+  };
+
   useEffect(() => {
     console.log(experienceList);
     setResumeInfo({
@@ -133,7 +160,9 @@ const Experience = ({ enableNext }) => {
             </Button>
           </div>
 
-          <Button variant="outline">Save</Button>
+          <Button variant="outline" onClick={onSave} disabled={loading}>
+            {loading ? "Saving..." : "Save"}
+          </Button>
         </div>
       </div>
     </div>
