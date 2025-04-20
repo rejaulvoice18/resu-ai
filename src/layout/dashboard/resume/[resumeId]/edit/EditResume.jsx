@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 import FormSection from '../../components/FormSection';
@@ -8,23 +9,34 @@ import dummy from '@/data/dummy';
 const EditResume = () => {
     // const params = useParams();
     const [resumeInfo, setResumeInfo] = useState()
+=======
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import FormSection from "../../components/FormSection";
+import ResumePreview from "../../components/ResumePreview";
+import { ResumeInfoContext } from "@/context/ResumeInfoContext";
+import dummy from "@/data/dummy";
 
-    useEffect(() => {
-        setResumeInfo(dummy)
-    }, [])
+const EditResume = () => {
+  const params = useParams();
+  const [resumeInfo, setResumeInfo] = useState();
+>>>>>>> 960561600dd80ef16a418d90f0a3b97c0a671f42
 
-    return (
-        <ResumeInfoContext.Provider value={{resumeInfo, setResumeInfo}}>
-            <div className='grid grid-cols-1 md:grid-cols-2 p-10 gap-10'>
-                {/* Form Section */}
-                <FormSection />
+  useEffect(() => {
+    setResumeInfo(dummy);
+  }, []);
 
-                {/* Preview Section */}
-                <ResumePreview />
+  return (
+    <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 p-10 gap-10">
+        {/* Form Section */}
+        <FormSection resumeId={params.resumeId} />
 
-            </div>
-        </ResumeInfoContext.Provider>
-    );
+        {/* Preview Section */}
+        <ResumePreview />
+      </div>
+    </ResumeInfoContext.Provider>
+  );
 };
 
 export default EditResume;

@@ -18,6 +18,7 @@ const Experience = ({ enableNext }) => {
   const [experienceList, setExperienceList] = useState([formField]);
 
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
+  const [aiGeneratedSummeryList, setAiGeneratedSummeryList] = useState([]);
   const handleChange = (idx, event) => {
     const newEntries = experienceList.slice();
     const { name, value } = event.target;
@@ -25,14 +26,14 @@ const Experience = ({ enableNext }) => {
     setExperienceList(newEntries);
   };
 
-  const handleRichTextEditor = (e, name, index) => {
-    const newEntries = experienceList.slice();
-    newEntries[index][name] = e.target.value;
+  const handleRichTextEditor = (value, name, index) => {
+    const newEntries = [...experienceList];
+    newEntries[index][name] = value;
     setExperienceList(newEntries);
   };
 
   const AddNewExperience = () => {
-    setExperienceList([...experienceList, formField]);
+    setExperienceList([...experienceList, { ...formField }]); // clone object
   };
   const RemoveExperience = () => {
     setExperienceList((experienceList) => experienceList.slice(0, -1));
@@ -41,6 +42,7 @@ const Experience = ({ enableNext }) => {
   //     console.log(experienceList);
   //   }, [experienceList]);
   useEffect(() => {
+    console.log(experienceList);
     setResumeInfo({
       ...resumeInfo,
       experience: experienceList,
@@ -110,8 +112,9 @@ const Experience = ({ enableNext }) => {
                 <div className="col-span-2">
                   <RichTextEditor
                     idx={idx}
-                    onRichTextEditorChange={(event) =>
-                      handleRichTextEditor(event, "workSummery", idx)
+                    value={experienceList[idx].workSummery}
+                    onRichTextEditorChange={(value) =>
+                      handleRichTextEditor(value, "workSummery", idx)
                     }
                     className="text-white"
                   ></RichTextEditor>

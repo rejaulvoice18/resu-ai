@@ -7,11 +7,11 @@ import { useParams } from "react-router-dom";
 import { LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
 
-const PersonalDetail = ({ enableNext }) => {
+const PersonalDetail = ({ enableNext, resumeId }) => {
   const params = useParams();
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
 
-  const [formData, setFormData] = useState(resumeInfo || {});
+  const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const PersonalDetail = ({ enableNext }) => {
       data: formData,
     };
 
-    GlobalApi.UpdateResumeDetail(params?.resumeId, data).then(
+    GlobalApi.UpdateResumeDetail(resumeId, data).then(
       (resp) => {
         console.log(resp);
         enableNext(true);
