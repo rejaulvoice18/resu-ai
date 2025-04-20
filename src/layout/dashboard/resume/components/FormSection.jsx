@@ -5,12 +5,15 @@ import { ArrowLeft, ArrowRight, LayoutGrid } from 'lucide-react';
 import { useState } from 'react';
 import Summery from './forms/Summery';
 import Experience from './forms/Experience';
+import { Navigate, useParams } from 'react-router-dom';
+import Education from './forms/Education';
+import Skills from './forms/Skills';
 
 
 const FormSection = () => {
     const [activeFormIndex, setActiveFormIndex]=useState(1)
-    const [enableNext, setEnableNext] = useState(false)
-
+    const [enableNext, setEnableNext] = useState(true)
+    const {resumeId}=useParams();
     return (
         <div>
             <div className='flex justify-between items-center'>
@@ -30,7 +33,9 @@ const FormSection = () => {
             {activeFormIndex==1 ? <PersonalDetail  enableNext={(v)=>setEnableNext(v)} /> 
             :activeFormIndex==2? <Summery enableNext={(v)=>setEnableNext(v)} /> 
             :activeFormIndex==3? <Experience enableNext={(v)=>setEnableNext(v)} />
-            : null}
+            :activeFormIndex==4? <Education/>
+            :activeFormIndex==5? <Skills></Skills>
+            :activeFormIndex ==6?<Navigate to={'/my-resume/'+resumeId+'/view'}></Navigate>: null}
             {/* Summary */}
 
             {/* Experience */}

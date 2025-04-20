@@ -16,7 +16,7 @@ const PersonalDetail = ({ enableNext }) => {
 
   useEffect(() => {
     console.log("...", resumeInfo);
-  }, []);
+  },[]);
 
   const handleInputChange = (e) => {
     enableNext(false);
