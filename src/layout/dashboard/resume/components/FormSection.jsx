@@ -4,6 +4,8 @@ import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 import { useState } from "react";
 import Summery from "./forms/Summery";
 import Experience from "./forms/Experience";
+import { Navigate, useParams } from "react-router-dom";
+import ThemeColor from "./ThemeColor";
 import Education from "./forms/Education";
 
 const FormSection = ({ resumeId }) => {
@@ -13,10 +15,7 @@ const FormSection = ({ resumeId }) => {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <Button variant="outline" size="sm" className="flex gap-2">
-          {" "}
-          <LayoutGrid /> Theme
-        </Button>
+        <ThemeColor></ThemeColor>
         <div className="flex gap-2">
           {activeFormIndex > 1 && (
             <Button
@@ -53,7 +52,8 @@ const FormSection = ({ resumeId }) => {
           resumeId={resumeId}
           enableNext={(v) => setEnableNext(v)}
         ></Education>
-      ) : null}
+      ) : activeFormIndex==6?
+      <Navigate to={'/my-resume/'+resumeId+"/view"}/>: null}
       {/* Summary */}
 
       {/* Experience */}
@@ -61,6 +61,8 @@ const FormSection = ({ resumeId }) => {
       {/* Educational Detail */}
 
       {/* Skills */}
+
+      
     </div>
   );
 };
