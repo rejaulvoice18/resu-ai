@@ -31,7 +31,7 @@ function ViewResume() {
             <div id='no-print'>
                 <NavBar></NavBar>
                 <div className='my-10 mx-10 md:mx-20 ;lg:mx-36'>
-                    <h2 className='text-center text-2xl font-medium'>Congrats! Your AI Generated Resume Is Ready</h2>
+                    <h2 className='text-center text-2xl font-medium text-white'>Congrats! Your AI Generated Resume Is Ready</h2>
                     <p className='text-center text-gray-400'>Now You Are Ready To Download Your Resume And You Can Share Resume Url With your Friends And Family</p>
                     <div className='flex justify-between px-44 my-10'>
                         <Button onClick={HandleDownload}>Download</Button>

@@ -6,11 +6,11 @@ import Summery from "./forms/Summery";
 import Experience from "./forms/Experience";
 import { Navigate, useParams } from "react-router-dom";
 import ThemeColor from "./ThemeColor";
+import Education from "./forms/Education";
 
 const FormSection = ({ resumeId }) => {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
   const [enableNext, setEnableNext] = useState(false);
-  // const {resumeId} = useParams()
 
   return (
     <div>
@@ -46,15 +46,14 @@ const FormSection = ({ resumeId }) => {
       ) : activeFormIndex == 2 ? (
         <Summery resumeId={resumeId} enableNext={(v) => setEnableNext(v)} />
       ) : activeFormIndex == 3 ? (
-        <Experience enableNext={(v) => setEnableNext(v)} />
+        <Experience resumeId={resumeId} enableNext={(v) => setEnableNext(v)} />
+      ) : activeFormIndex == 4 ? (
+        <Education
+          resumeId={resumeId}
+          enableNext={(v) => setEnableNext(v)}
+        ></Education>
       ) : activeFormIndex==6?
-      <Navigate to={'/my-resume/'+resumeId+"/view"}/>
-      
-      
-      
-      
-      
-      : null}
+      <Navigate to={'/my-resume/'+resumeId+"/view"}/>: null}
       {/* Summary */}
 
       {/* Experience */}
