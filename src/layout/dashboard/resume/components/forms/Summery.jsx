@@ -93,6 +93,7 @@ const Summery = ({ enableNext, resumeId }) => {
           <Textarea
             className="mt-5 text-white"
             required
+            defaultValue={resumeInfo?.summery}
             onChange={(e) => setSummery(e.target.value)}
           />
           <div className="mt-2 flex justify-end">
