@@ -60,16 +60,16 @@ const Skills = ({ enableNext, resumeId }) => {
     });
   }, [skillList]);
   return (
-    <div className="p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10">
-      <h2 className="font-bold text-lg text-white">Skills</h2>
-      <p className="text-white">Add Your top skills</p>
+    <div className="p-5 shadow-lg shadow-gray-200 rounded-lg border-t-gray-200 border-t-4 mt-10 bg-white">
+      <h2 className="font-bold text-lg text-gray-800">Skills</h2>
+      <p className="text-gray-700">Add Your top skills</p>
       <div>
         {skillList.map((item, idx) => (
-          <div className="flex items-center justify-between border rounded-lg p-3 mb-2 ">
+          <div className="flex items-center justify-between border rounded-lg p-3 mb-2 border-gray-200">
             <div>
-              <label className="text-xs text-white">Name</label>
+              <label className="text-xs text-gray-700">Name</label>
               <Input
-                className="text-white"
+                className="text-gray-800"
                 onChange={(e) => handleChange(idx, "name", e.target.value)}
               ></Input>
             </div>

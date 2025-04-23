@@ -1,15 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const SummeryPreview = ({resumeInfo}) => {
-    return (
-        <div>
-            <p className='text-xs text-white'>
-                {
-                    resumeInfo?.summery
-                }
-            </p>
-        </div>
-    );
+const SummeryPreview = ({ resumeInfo }) => {
+  return (
+    <div>
+      <p className="text-xs text-gray-700">{resumeInfo?.summery}</p>
+    </div>
+  );
 };
 
 export default SummeryPreview;

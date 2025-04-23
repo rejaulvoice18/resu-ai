@@ -8,15 +8,18 @@
   list-style: disc;
   padding-left: 2em;
 }
+html {
+  overflow-y: scroll;
+}
 
 .rsw-ce ol {
   list-style: decimal;
   padding-left: 2em;
 }
 
-body {
+/* body {
   background-color: #14110f;
-}
+} */
 a.active {
   background-color: #34312d !important;
 }
@@ -30,7 +33,6 @@ a.active {
   list-style: decimal;
   padding-left: 2em;
 }
-
 
 :root {
   --radius: 0.625rem;
@@ -148,24 +150,22 @@ a.active {
   }
 }
 
-@media print{
-  #no-print{
+@media print {
+  #no-print {
     display: none;
   }
 
-  #print-area{
+  #print-area {
     display: block;
   }
-  body{
+  body {
     margin: 0;
     padding: 0;
     box-shadow: none;
-
   }
 }
 
-@page{
-  size:auto;
+@page {
+  size: auto;
   margin: 0mm;
-
 }

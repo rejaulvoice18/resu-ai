@@ -72,65 +72,65 @@ const Education = ({ enableNext, resumeId }) => {
   }, [educationlist]);
   return (
     <div>
-      <div className="p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10">
-        <h2 className="font-bold text-lg text-white">Education</h2>
-        <p className="text-white">Add Your educational details</p>
+      <div className="p-5 shadow-lg shadow-gray-200 rounded-lg border-t-gray-200 border-t-4 mt-10 bg-white">
+        <h2 className="font-bold text-lg text-gray-800">Education</h2>
+        <p className="text-gray-700">Add Your educational details</p>
 
         <div>
           {educationlist.map((item, idx) => (
             <div key={idx}>
-              <div className="grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg">
+              <div className="grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg border-gray-200">
                 <div className="col-span-2">
-                  <label className="text-white">University Name</label>
+                  <label className="text-gray-700">University Name</label>
                   <Input
                     name="universityName"
-                    className="text-white text-xs"
+                    className="text-gray-800 text-xs"
                     onChange={(e) => handleChange(e, idx)}
                   ></Input>
                 </div>
 
                 <div>
-                  <label className="text-white">Degree</label>
+                  <label className="text-gray-700">Degree</label>
                   <Input
                     name="degree"
-                    className="text-white text-xs"
+                    className="text-gray-800 text-xs"
                     onChange={(e) => handleChange(e, idx)}
                   ></Input>
                 </div>
 
                 <div>
-                  <label className="text-white">Major</label>
+                  <label className="text-gray-700">Major</label>
                   <Input
                     name="major"
-                    className="text-white text-xs"
+                    className="text-gray-800 text-xs"
                     onChange={(e) => handleChange(e, idx)}
                   ></Input>
                 </div>
 
                 <div>
-                  <label className="text-white">Start Date</label>
+                  <label className="text-gray-700">Start Date</label>
                   <Input
                     name="startDate"
                     type="date"
-                    className="text-white text-xs"
+                    className="text-gray-800 text-xs"
                     onChange={(e) => handleChange(e, idx)}
                   ></Input>
                 </div>
 
                 <div>
-                  <label className="text-white">End Date</label>
+                  <label className="text-gray-700">End Date</label>
                   <Input
                     name="endDate"
                     type="date"
-                    className="text-white text-xs"
+                    className="text-gray-800 text-xs"
                     onChange={(e) => handleChange(e, idx)}
                   ></Input>
                 </div>
 
                 <div className="col-span-2">
-                  <label className="text-white">Description</label>
+                  <label className="text-gray-700">Description</label>
                   <Textarea
-                    className=" text-white text-xs"
+                    className="text-gray-800 text-xs"
                     name="description"
                     onChange={(e) => handleChange(e, idx)}
                   ></Textarea>

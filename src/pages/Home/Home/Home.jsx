@@ -1,28 +1,24 @@
-import React from 'react';
-import AITool from '../../../components/AITool';
-import ResumeService from '../../../components/ResumeService';
-import Hero from '../../../components/Hero';
-import FeaturesSection from "../../../components/FeaturesSection";
-import ResumeInsightsSection from "../../../components/ResumeInsightsSection";
-import TestimonialSection from "../../../components/TestimonialSection";
-import Feature2 from "../../../components/Feature2";
-import NavBar from "@/shared/NavBar/NavBar";
+import React from "react";
+
+import Hero from "../../../components/Hero";
+
+import WhyChooseUs from "../../../components/WhyChooseUs";
+import DeliverySection from "../../../components/DeliverySection";
+import OurCreativeTemplates from "../../../components/OurCreativeTemplates";
+import OurMainFeatures from "@/components/OurMainFeatures";
+import TestimonialSlider from "../../../components/TestimonialSlider";
 
 const Home = () => {
-    return (
-        <div>
-            
-            <NavBar></NavBar>
-            <Hero></Hero>
-            <FeaturesSection />
-            <ResumeInsightsSection />
-            <TestimonialSection />
-            <Feature2 />
-            <AITool></AITool>
-            <ResumeService></ResumeService>  
-        </div>
-    );
-
+  return (
+    <div>
+      <Hero></Hero>
+      <WhyChooseUs />
+      <DeliverySection />
+      <OurCreativeTemplates />
+      <OurMainFeatures></OurMainFeatures>
+      <TestimonialSlider></TestimonialSlider>
+    </div>
+  );
 };
 
 export default Home;
