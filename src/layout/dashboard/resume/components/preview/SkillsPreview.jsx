@@ -13,7 +13,7 @@ const SkillsPreview = ({ resumeInfo }) => {
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
       <div className="grid grid-cols-2 gap-3 my-4">
-        {resumeInfo?.skills.map((skill, idx) => (
+        {resumeInfo?.skills?.map((skill, idx) => (
           <div key={idx} className="flex items-center justify-between">
             <h2 className="text-xs text-gray-700">{skill?.name}</h2>{" "}
             {/* Changed skill name color */}

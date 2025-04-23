@@ -12,7 +12,7 @@ const EducationalPreview = ({ resumeInfo }) => {
         Education
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
-      {resumeInfo?.education.map((education, idx) => (
+      {resumeInfo?.education?.map((education, idx) => (
         <div key={idx} className="my-5">
           <h2
             className="text-sm font-bold"
