@@ -27,7 +27,6 @@ function ViewResume() {
   return (
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
       <div id="no-print">
-        <NavBar></NavBar>
         <div className="my-10 mx-10 md:mx-20 ;lg:mx-36">
           <h2 className="text-center text-2xl font-medium text-white">
             Congrats! Your AI Generated Resume Is Ready
@@ -60,7 +59,7 @@ function ViewResume() {
         </div>
       </div>
       <div id="print-area" className="flex justify-center p-4">
-        <div className="max-w-4xl w-full mx-auto bg-black p-6 rounded-md shadow-lg">
+        <div className="max-w-4xl w-full mx-auto bg-white p-6 rounded-md shadow-lg">
           <ResumePreview />
         </div>
       </div>

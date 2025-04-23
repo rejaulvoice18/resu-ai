@@ -73,13 +73,13 @@ const Summery = ({ enableNext, resumeId }) => {
   };
   return (
     <div>
-      <div className="p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10">
-        <h2 className="font-bold text-lg text-white">Summery</h2>
-        <p className="text-white">Add Summery for your job title</p>
+      <div className="p-5 shadow-lg shadow-gray-200 rounded-lg border-t-gray-200 border-t-4 mt-10 bg-white">
+        <h2 className="font-bold text-lg text-gray-800">Summery</h2>
+        <p className="text-gray-700">Add Summery for your job title</p>
 
         <form className="mt-7" onSubmit={onSave}>
           <div className="flex justify-between items-end">
-            <label className="text-white">Add Summery</label>
+            <label className="text-gray-700">Add Summery</label>
             <Button
               type="button"
               variant="outline"
@@ -91,7 +91,7 @@ const Summery = ({ enableNext, resumeId }) => {
             </Button>
           </div>
           <Textarea
-            className="mt-5 text-white"
+            className="mt-5 text-gray-800"
             required
             defaultValue={resumeInfo?.summery}
             onChange={(e) => setSummery(e.target.value)}
@@ -107,17 +107,19 @@ const Summery = ({ enableNext, resumeId }) => {
       {Array.isArray(aiGeneratedSummeryList) &&
         aiGeneratedSummeryList.length > 0 && (
           <div>
-            <h2 className="font-bold text-lg text-white mt-2">Suggestions</h2>
+            <h2 className="font-bold text-lg text-gray-800 mt-2">
+              Suggestions
+            </h2>
             {aiGeneratedSummeryList.map((item, idx) => (
               <div
                 key={idx}
                 onClick={() => setSummery(item?.summary)}
-                className="p-5 shadow-lg my-4 rounded-lg cursor-pointer"
+                className="p-5 shadow-lg my-4 rounded-lg cursor-pointer bg-white hover:bg-gray-100 transition-colors"
               >
-                <h2 className="font-bold my-1 text-white">
+                <h2 className="font-bold my-1 text-gray-800">
                   Level: {item?.experience_level}
                 </h2>
-                <p className="text-white">{item?.summary}</p>
+                <p className="text-gray-700">{item?.summary}</p>
               </div>
             ))}
           </div>
