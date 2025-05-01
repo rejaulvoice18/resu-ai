@@ -1,30 +1,25 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-import FormSection from '../../components/FormSection';
-import ResumePreview from '../../components/ResumePreview';
-import { ResumeInfoContext } from '@/context/ResumeInfoContext';
-import dummy from '@/data/dummy';
-
-const EditResume = () => {
-    // const params = useParams();
-    const [resumeInfo, setResumeInfo] = useState()
-=======
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FormSection from "../../components/FormSection";
 import ResumePreview from "../../components/ResumePreview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
-import dummy from "@/data/dummy";
+
+import GlobalApi from "../../../../../../apiendpoint/GlobalApi";
 
 const EditResume = () => {
   const params = useParams();
   const [resumeInfo, setResumeInfo] = useState();
->>>>>>> 960561600dd80ef16a418d90f0a3b97c0a671f42
 
   useEffect(() => {
-    setResumeInfo(dummy);
+    GetResumeInfo();
   }, []);
+
+  const GetResumeInfo = () => {
+    GlobalApi.GetResumeById(params.resumeId).then((resp) => {
+      console.log(resp.data.data);
+      setResumeInfo(resp.data.data);
+    });
+  };
 
   return (
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>

@@ -53,16 +53,16 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
     );
   };
   return (
-    <div className="p-5 shadow-lg shadow-gray-400 rounded-lg border-t-gray-400 border-t-4 mt-10">
-      <h2 className="font-bold text-lg text-white">Personal Detail</h2>
-      <h2 className="text-white">Get Started with the basic information</h2>
+    <div className="p-5 shadow-lg shadow-gray-200 rounded-lg border-t-gray-200 border-t-4 mt-10 bg-white">
+      <h2 className="font-bold text-lg text-gray-800">Personal Detail</h2>
+      <h2 className="text-gray-700">Get Started with the basic information</h2>
 
       <form onSubmit={onSave}>
         <div className="grid grid-cols-2 mt-5 gap-3">
           <div>
-            <label className="text-sm text-white">First Name</label>
+            <label className="text-sm text-gray-700">First Name</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="firstName"
               defaultValue={resumeInfo?.firstName}
               required
@@ -70,9 +70,9 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
             />
           </div>
           <div>
-            <label className="text-sm text-white">Last Name</label>
+            <label className="text-sm text-gray-700">Last Name</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="lastName"
               defaultValue={resumeInfo?.lastName}
               required
@@ -80,9 +80,9 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
             />
           </div>
           <div className="col-span-2">
-            <label className="text-sm text-white">Job Title</label>
+            <label className="text-sm text-gray-700">Job Title</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="jobTitle"
               defaultValue={resumeInfo?.jobTitle}
               required
@@ -90,9 +90,9 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
             />
           </div>
           <div className="col-span-2">
-            <label className="text-sm text-white">Address</label>
+            <label className="text-sm text-gray-700">Address</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="address"
               defaultValue={resumeInfo?.address}
               required
@@ -100,9 +100,9 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
             />
           </div>
           <div>
-            <label className="text-sm text-white">Phone</label>
+            <label className="text-sm text-gray-700">Phone</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="phone"
               defaultValue={resumeInfo?.phone}
               required
@@ -110,9 +110,9 @@ const PersonalDetail = ({ enableNext, resumeId }) => {
             />
           </div>
           <div>
-            <label className="text-sm text-white">Email</label>
+            <label className="text-sm text-gray-700">Email</label>
             <Input
-              className="text-white"
+              className="text-gray-800"
               name="email"
               defaultValue={resumeInfo?.email}
               required
