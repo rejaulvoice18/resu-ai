@@ -14,6 +14,7 @@ function ViewResume() {
   useEffect(() => {
     GetResumeInfo();
   }, []);
+
   const GetResumeInfo = () => {
     GlobalApi.GetResumeById(resumeId).then((resp) => {
       console.log(resp.data.data);
@@ -24,10 +25,11 @@ function ViewResume() {
   const HandleDownload = () => {
     window.print();
   };
+
   return (
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
       <div id="no-print">
-        <div className="my-10 mx-10 md:mx-20 ;lg:mx-36">
+        <div className="my-10 mx-4 sm:mx-10 md:mx-20 lg:mx-36">
           <h2 className="text-center text-2xl font-medium text-white">
             Congrats! Your AI Generated Resume Is Ready
           </h2>
@@ -35,8 +37,10 @@ function ViewResume() {
             Now You Are Ready To Download Your Resume And You Can Share Resume
             Url With your Friends And Family
           </p>
-          <div className="flex justify-between px-44 my-10">
-            <Button onClick={HandleDownload}>Download</Button>
+          <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-10 px-4 sm:px-20 my-10">
+            <Button onClick={HandleDownload} className="w-full sm:w-auto">
+              Download
+            </Button>
             <RWebShare
               data={{
                 text: "Hello, Everyone, This is My Resume",
@@ -53,7 +57,7 @@ function ViewResume() {
               }}
               onClick={() => console.log("shared successfully!")}
             >
-              <Button>Share</Button>
+              <Button className="w-full sm:w-auto">Share</Button>
             </RWebShare>
           </div>
         </div>

@@ -44,7 +44,7 @@ const OurCreativeTemplates = () => {
               />
               <div className="p-4 flex justify-around">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md flex items-center">
-                  <Link> EXPLORE MORE</Link>
+                  <Link to={"/dashboard"}> Try Us</Link>
                 </button>
               </div>
             </div>
@@ -58,7 +58,7 @@ const OurCreativeTemplates = () => {
               />
               <div className="p-4 flex justify-around">
                 <button className="bg-white hover:bg-blue-700 text-black outline-1 font-semibold py-2 px-4 rounded-md flex items-center">
-                  <Link> EXPLORE MORE</Link>
+                  <Link to={"/dashboard"}> Try Us</Link>
                 </button>
               </div>
             </div>
@@ -72,7 +72,7 @@ const OurCreativeTemplates = () => {
               />
               <div className="p-4 flex justify-around">
                 <button className="bg-white hover:bg-blue-700 text-black outline-1 font-semibold py-2 px-4 rounded-md flex items-center">
-                  <Link> EXPLORE MORE</Link>
+                  <Link to={"/dashboard"}> Try Us</Link>
                 </button>
               </div>
             </div>

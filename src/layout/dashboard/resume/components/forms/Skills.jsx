@@ -80,8 +80,8 @@ const Skills = ({ enableNext, resumeId }) => {
             ></Rating>
           </div>
         ))}
-        <div className="flex justify-between">
-          <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row justify-between">
+          <div className="flex flex-col md:flex-row gap-2">
             <Button onClick={AddNewSkills} variant="outline">
               + Add More Skills
             </Button>

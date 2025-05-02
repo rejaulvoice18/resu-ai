@@ -153,8 +153,8 @@ const Experience = ({ enableNext, resumeId }) => {
             </div>
           ))}
         </div>
-        <div className="flex justify-between">
-          <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row  justify-between">
+          <div className="flex flex-col md:flex-row gap-2">
             <Button onClick={AddNewExperience} variant="outline">
               + Add More Experience
             </Button>
