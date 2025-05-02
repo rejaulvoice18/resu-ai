@@ -124,7 +124,7 @@ const WhyChooseUs = () => {
             </p>
           </div>
           <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md">
-            <Link to={"/dashboard"}> LET'S BUILD YOUR CV</Link>
+            <Link to={"/dashboard"}> Connect With Us!</Link>
           </button>
         </div>
       </div>
