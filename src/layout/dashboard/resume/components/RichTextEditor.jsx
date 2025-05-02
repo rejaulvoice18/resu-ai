@@ -26,6 +26,91 @@ const RichTextEditor = ({ onRichTextEditorChange, idx }) => {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
   const [loading, setLoading] = useState(false);
 
+  // const GenerateSummary = async () => {
+  //   setLoading(true);
+
+  //   if (!resumeInfo.experience[idx].title) {
+  //     toast("Please Add Position Title");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   const prompt = PROMPT.replace(
+  //     "{positionTitle}",
+  //     resumeInfo.experience[idx].title
+  //   );
+
+  //   try {
+  //     const result = await AIChatSession.sendMessage(prompt);
+  //     const text = await result.response.text();
+  //     const resp = text.replace("[", "").replace("]", "");
+  //     console.log(resp);
+
+  //     setValue(resp); // Set value for text editor
+  //     onRichTextEditorChange(value, "workSummery", idx); // Update parent state too
+  //   } catch (err) {
+  //     toast("Failed to generate summary");
+  //     console.error("AI Summary Error:", err);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // const GenerateSummary = async () => {
+  //   setLoading(true);
+
+  //   if (!resumeInfo.experience[idx].title) {
+  //     toast("Please Add Position Title");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   const prompt = PROMPT.replace(
+  //     "{positionTitle}",
+  //     resumeInfo.experience[idx].title
+  //   );
+
+  //   try {
+  //     const result = await AIChatSession.sendMessage(prompt);
+  //     const text = await result.response.text();
+
+  //     // Try parsing bullet points safely from response
+  //     let formattedHTML = "";
+
+  //     try {
+  //       const parsed = JSON.parse(text);
+  //       if (Array.isArray(parsed)) {
+  //         formattedHTML = `<ul>${parsed
+  //           .map((item) => `<li>${item}</li>`)
+  //           .join("")}</ul>`;
+  //       } else if (
+  //         parsed.bullet_points &&
+  //         Array.isArray(parsed.bullet_points)
+  //       ) {
+  //         formattedHTML = `<ul>${parsed.bullet_points
+  //           .map((item) => `<li>${item}</li>`)
+  //           .join("")}</ul>`;
+  //       } else {
+  //         formattedHTML = `<p>${text}</p>`; // fallback if not expected format
+  //       }
+  //     } catch (err) {
+  //       // fallback if JSON parsing fails — try removing brackets manually
+  //       const cleaned = text.replace(/^\[|\]$/g, "").replace(/"/g, "");
+  //       const items = cleaned.split("\n").filter((line) => line.trim());
+  //       formattedHTML = `<ul>${items
+  //         .map((item) => `<li>${item.trim()}</li>`)
+  //         .join("")}</ul>`;
+  //     }
+
+  //     setValue(formattedHTML);
+  //     onRichTextEditorChange(formattedHTML, "workSummery", idx);
+  //   } catch (err) {
+  //     toast("Failed to generate summary");
+  //     console.error("AI Summary Error:", err);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const GenerateSummary = async () => {
     setLoading(true);
 
@@ -43,11 +128,43 @@ const RichTextEditor = ({ onRichTextEditorChange, idx }) => {
     try {
       const result = await AIChatSession.sendMessage(prompt);
       const text = await result.response.text();
-      const resp = text.replace("[", "").replace("]", "");
-      console.log(resp);
 
-      setValue(resp); // Set value for text editor
-      onRichTextEditorChange(value, "workSummery", idx); // Update parent state too
+      // Try parsing bullet points safely from response
+      let formattedHTML = "";
+
+      try {
+        let parsed = JSON.parse(text);
+
+        // Handle stringified JSON inside a string
+        if (typeof parsed === "string") {
+          parsed = JSON.parse(parsed);
+        }
+
+        if (Array.isArray(parsed)) {
+          formattedHTML = `<ul>${parsed
+            .map((item) => `<li>${item}</li>`)
+            .join("")}</ul>`;
+        } else if (
+          parsed.bullet_points &&
+          Array.isArray(parsed.bullet_points)
+        ) {
+          formattedHTML = `<ul>${parsed.bullet_points
+            .map((item) => `<li>${item}</li>`)
+            .join("")}</ul>`;
+        } else {
+          formattedHTML = `<p>${text}</p>`; // fallback if not expected format
+        }
+      } catch (err) {
+        // fallback if JSON parsing fails — try removing brackets manually
+        const cleaned = text.replace(/^\[|\]$/g, "").replace(/"/g, "");
+        const items = cleaned.split("\n").filter((line) => line.trim());
+        formattedHTML = `<ul>${items
+          .map((item) => `<li>${item.trim()}</li>`)
+          .join("")}</ul>`;
+      }
+
+      setValue(formattedHTML);
+      onRichTextEditorChange(formattedHTML, "workSummery", idx);
     } catch (err) {
       toast("Failed to generate summary");
       console.error("AI Summary Error:", err);
@@ -74,9 +191,9 @@ const RichTextEditor = ({ onRichTextEditorChange, idx }) => {
           )}
         </Button>
       </div>
-      <EditorProvider className="text-white">
+      <EditorProvider className="text-black">
         <Editor
-          className="text-white"
+          className="text-black"
           value={value}
           onChange={(e) => {
             const html = e.target.value;

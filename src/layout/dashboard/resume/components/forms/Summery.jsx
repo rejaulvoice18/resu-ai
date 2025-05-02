@@ -38,9 +38,15 @@ const Summery = ({ enableNext, resumeId }) => {
     const responseText = await result.response.text(); // properly await text()
 
     try {
-      const parsed = JSON.parse(responseText); // directly parse JSON string
-      console.log(parsed); // Make sure it’s in expected structure
-      setAiGeneratedSummeryList(parsed.summary_list || parsed.summaries || []); // assuming API returns { summaries: [...] }
+      const parsed = JSON.parse(responseText);
+      console.log("Parsed AI response:", parsed);
+
+      if (Array.isArray(parsed)) {
+        setAiGeneratedSummeryList(parsed); // this is your array
+      } else {
+        toast.error("Unexpected AI response format");
+        console.error("Unexpected format:", parsed);
+      }
     } catch (err) {
       console.error("Error parsing AI summary:", err);
       toast.error("Failed to parse AI response");
@@ -93,7 +99,7 @@ const Summery = ({ enableNext, resumeId }) => {
           <Textarea
             className="mt-5 text-gray-800"
             required
-            defaultValue={resumeInfo?.summery}
+            value={summery || ""}
             onChange={(e) => setSummery(e.target.value)}
           />
           <div className="mt-2 flex justify-end">

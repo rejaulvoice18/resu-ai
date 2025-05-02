@@ -26,7 +26,7 @@ const Hero = () => {
               CHOOSE TEMPLATE
             </button> */}
             <button className="bg-gray-100 hover:bg-gray-200 text-blue-600 font-semibold py-3 px-6 rounded-md">
-              <Link to={"/contact-us"}>Contact Us</Link>
+              <Link to={"/dashboard"}>Build Your CV</Link>
             </button>
           </div>
         </div>

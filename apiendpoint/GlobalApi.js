@@ -8,7 +8,7 @@ const axiosClient = axios.create({
     Authorization: `Bearer ${API_KEY}`,
   },
 });
-
+// `https://resu-ai-admin.onrender.com${"/api/"}`,
 const CreateNewResume = (data) => axiosClient.post("/user-resumes", data);
 
 const GetUserResumes = (userEmail) =>
